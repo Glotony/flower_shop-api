@@ -1,0 +1,91 @@
+# Dependencies
+node_modules/
+npm/
+yarn/
+.pnpm-store/
+
+# Environment
+.env
+.env.*.local
+
+# Build / Output
+dist/
+build/
+.next/
+out/
+.cache/
+coverage/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Database files
+*.sqlite
+*.sqlite3
+dump.rdb
+
+# Backups & Temp
+*.bak
+*.swp
+*.tmp
+*.tgz
+*.tsbuildinfo
+
+# Package manager locks
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+
+# Misc
+.cache/
+*.localhistory/
+*.log.gz
+*.orig
+
+
+
+# Ignore specific files
+/secrets.js
+/flower-shop-api.sqlite3
+/flower-shop-api.sqlite
+/flower-shop-api.rdb
+/flower-shop-api.rdb.backup
+/flower-shop-api.rdb.backup2
+/flower-shop-api.rdb.backup3
+/flower-shop-api.rdb.backup4
+/flower-shop-api.rdb.backup5
+/flower-shop-api.rdb.backup6
+/flower-shop-api.rdb.backup7
+/flower-shop-api.rdb.backup8
+/flower-shop-api.rdb.backup9
+/flower-shop-api.rdb.backup10
+/flower-shop-api.rdb.backup11
+/flower-shop-api.rdb.backup12
+/flower-shop-api.rdb.backup13
+/flower-shop-api.rdb.backup14
+/flower-shop-api.rdb.backup15
+/flower-shop-api.rdb.backup16
+
+
+
