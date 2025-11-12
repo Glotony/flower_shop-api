@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import cors from 'cors';
 import { sequelize } from './models/index.mjs';
 
 // Routes
@@ -10,8 +11,16 @@ import orderRoutes from './routes/orderRoutes.mjs';
 
 const app = express();
 
+// ----------------------
 // Middleware
+// ----------------------
 app.use(express.json());
+
+// ⚡ Enable CORS for your frontend
+app.use(cors({
+  origin: 'http://localhost:5173', // change if your frontend URL is different
+  credentials: true, // needed if sending cookies/auth
+}));
 
 // ----------------------
 // Routes

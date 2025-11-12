@@ -1,0 +1,6 @@
+express
+sequelize
+mysql2
+dotenv
+cors
+nodemon
