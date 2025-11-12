@@ -8,7 +8,6 @@ const User = UserModel(sequelize);
 const Flower = FlowerModel(sequelize);
 const Order = OrderModel(sequelize);
 const OrderItem = OrderItemModel(sequelize);
-
 // Associations
 User.hasMany(Order);
 Order.belongsTo(User);
