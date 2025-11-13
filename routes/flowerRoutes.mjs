@@ -1,6 +1,6 @@
 import express from 'express';
-import auth from '../middleware/auth.mjs';
-import admin from '../middleware/admin.mjs';
+import auth from '../middlewares/auth.mjs';
+import admin from '../middlewares/admin.mjs';
 import { getAll, getOne, create, update, del } from '../controllers/flowerController.mjs';
 
 const router = express.Router();

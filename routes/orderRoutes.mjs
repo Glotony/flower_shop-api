@@ -1,5 +1,5 @@
 import express from 'express';
-import auth from '../middleware/auth.mjs';
+import auth from '../middlewares/auth.mjs';
 import { getOrders, getOrderById } from '../controllers/orderController.mjs';
 const router = express.Router();
 

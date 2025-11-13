@@ -1,5 +1,5 @@
 import express from 'express';
-import auth from '../middleware/auth.mjs';
+import auth from '../middlewares/auth.mjs';
 import { getCart, addToCart, checkout } from '../controllers/cartController.mjs';
 
 const router = express.Router();
