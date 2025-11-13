@@ -12,7 +12,7 @@ import orderRoutes from './routes/orderRoutes.mjs';
 const app = express();
 
 // ----------------------
-// Middleware
+// Middlewares
 // ----------------------
 app.use(express.json());
 

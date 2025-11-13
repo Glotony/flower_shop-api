@@ -21,7 +21,6 @@ export default (req, res, next) => {
     req.user = jwt.verify(token, process.env.JWT_SECRET);
     next();
   } catch (err) {
-    // differentiate between expired and invalid token
     if (err.name === 'TokenExpiredError') {
       return res.status(401).json({ message: 'Token expired' });
     }
