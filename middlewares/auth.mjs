@@ -1,16 +1,20 @@
+// middlewares/auth.mjs
 import jwt from 'jsonwebtoken';
 
-export default (req, res, next) => {
+export const authMiddleware = (req, res, next) => {
   const authHeader = req.headers['authorization'];
-  if (!authHeader) return res.status(401).json({ message: 'No Authorization header' });
+  if (!authHeader) return res.status(401).json({ message: 'No Authorization header provided' });
 
   const [scheme, token] = authHeader.split(' ');
-  if (scheme !== 'Bearer' || !token) return res.status(401).json({ message: 'Invalid Authorization header' });
+  if (!scheme || !token) return res.status(401).json({ message: 'Malformed Authorization header' });
+  if (scheme !== 'Bearer') return res.status(401).json({ message: 'Authorization scheme must be Bearer' });
 
   try {
     req.user = jwt.verify(token, process.env.JWT_SECRET);
     next();
   } catch (err) {
-    return res.status(401).json({ message: err.name === 'TokenExpiredError' ? 'Token expired' : 'Invalid token' });
+    if (err.name === 'TokenExpiredError') return res.status(401).json({ message: 'Token expired' });
+    return res.status(401).json({ message: 'Invalid token' });
   }
 };
+export default authMiddleware;

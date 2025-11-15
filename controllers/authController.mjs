@@ -72,3 +72,18 @@ export const getMe = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 };
+// Checkout / place order
+export const checkout = async (req, res) => {
+  const items = carts[req.user.id];
+  if (!items || items.length === 0) return res.status(400).json({ message: 'Cart empty' });
+
+  const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+  const order = await Order.create({ userId: req.user.id, total });
+
+  for (const item of items) {
+    await OrderItem.create({ OrderId: order.id, FlowerId: item.flowerId, quantity: item.quantity });
+  }
+
+  carts[req.user.id] = []; // clear cart
+  res.json({ message: 'Order placed', orderId: order.id });
+};
