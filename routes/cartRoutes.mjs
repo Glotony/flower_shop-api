@@ -1,16 +1,23 @@
 import express from 'express';
-import auth from '../middlewares/auth.mjs';
-import { getCart, addToCart, checkout } from '../controllers/cartController.mjs';
+import {
+  getCart,
+  addToCart,
+  updateCartItem,
+  removeFromCart,
+  clearCart,
+  checkout
+} from '../controllers/cartController.mjs';
+import authMiddleware from '../middlewares/auth.mjs';
 
 const router = express.Router();
 
-// Get all cart items for the logged-in user
-router.get('/', auth, getCart);
+router.use(authMiddleware);
 
-// Add an item to the cart
-router.post('/', auth, addToCart);
-
-// Checkout cart (create order)
-router.post('/checkout', auth, checkout);
+router.get('/', getCart);
+router.post('/', addToCart);
+router.put('/:flowerId', updateCartItem);
+router.delete('/:flowerId', removeFromCart);
+router.delete('/', clearCart);
+router.post('/checkout', checkout);
 
 export default router;
